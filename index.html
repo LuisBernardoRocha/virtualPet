@@ -1,38 +1,42 @@
 <!DOCTYPE html>
 <html>
 <head>
- <link rel="stylesheet" type="text/css" href="css/kittystyle.css"> 
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
- <script src="js/virtualPet.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/kittystyle.css"> 
+	<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="js/virtualPet.js"></script>
 
-
-  
-  <title>Virtual Pet</title>
+	<title>Virtual Pet</title>
 </head>
+
 <body>
-<div class="centeredContent">
-<div class="kittyTitle">./VirtuaCat/</div>
-<img src="img/kitty0.png" class="meowmeow" width="250">
-<form>
-Name: <input type="text" name="petName" value=""><br>
 
-Status: <input type="text" size="60" name="petStatus" value=""><br>
 
-<input type="button" value="play" onClick="kitty.play();">
+	<div class="card-panel">./commandFeline/</div>
 
-<input type="button" value="feed" class ="feedIt" onClick="kitty.feed();">
+	<div class="valign">
 
-<input type="button" value="medicate" onClick="kitty.medicate();">
+		<img src="img/kitty0.png" class="meowmeow" width="350"><br>
 
-</form>
+		<form>
+			<input class="score" type="text" name="petName" value=""><br>
+			<br>
+			<input class="score" type="text" size="60" name="petStatus" value=""><br>
+		</form>
 
-<form>
+		<input type="button" class="waves-effect waves-light btn" value="play" onClick="kitty.play();">
 
-<input type="button" value="start" onClick="start();">
+		<input type="button"  class="waves-effect waves-light btn" value="feed" class ="feedIt" onClick="kitty.feed();">
 
-<input type="button" value="stop the madness!" onClick = "clearTimeout(theTimeOut);">
+		<input type="button"  class="waves-effect waves-light btn" value="medicate" onClick="kitty.medicate();">
 
-</form>
- </div> 
+		<br>
+
+		<input type="button" class="waves-effect waves-light btn" value="start" onClick="start();">
+
+		<input type="button" class="waves-effect waves-light btn" value="pause" onClick = "clearTimeout(theTimeOut);">
+
+	</div> 
 </body>
 </html>
