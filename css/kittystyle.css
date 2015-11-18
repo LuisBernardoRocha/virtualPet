@@ -1,0 +1,18 @@
+body {
+  background: #fcadc3;
+  font: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.centeredContent {
+  margin-left: auto;
+  margin-right: auto;
+  background: #ffffff;
+  min-height: 1200px;
+  max-width: 750px;
+  
+}
+
+.kittyTitle {
+	font: 30px "Courier New", Courier, monospace;
+	padding: 30px;
+}

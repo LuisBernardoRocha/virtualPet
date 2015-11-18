@@ -1,15 +1,16 @@
 var kitty;
-var nameKitty = prompt("Meow! Name your kitty!");
+var nameKitty = prompt("Meow! A hungry, stray virtual kitty has found you! You decide to take him in as your own. A no-named cat would be silly - so what will you name him?");
 var theTimeOut;
 var minHealth = 0;
 var purr = new Audio('audio/purr.mp3');
 var funeral = new Audio ('audio/funeral.mp3');
+var loveU = new Audio ('audio/loveu.mp3');
 
 function Pet(thePetName, theFormNumber) {
 	this.age = 0;
 	this.hunger = 0;  // random number between 0 and 4.99
 	this.health = 10;
-	this.happiness = 0;
+	this.happiness = 5;
 	this.petName = thePetName;
 	this.formNumber = theFormNumber;
 
@@ -18,7 +19,6 @@ function Pet(thePetName, theFormNumber) {
 	this.medicate = medicate;
 	this.display = display;
 	this.makeOlder = makeOlder;
-    this.imageChange = imageChange;
 	window.document.forms[theFormNumber].petName.value = thePetName;
 	this.display();
 }
@@ -47,34 +47,23 @@ function medicate() {
     this.display();
 }
 
-function imageChange(){
-  if (this.health < minHealth){
-    /// dead cat
-     $('.meowmeow').attr("src", "http://i.imgur.com/jlpPJrS.png");
-  }
-  
-  else if (this.age > 20){
-    /// angel cat
-    $('.meowmeow').attr("src", "http://i.imgur.com/0asox5n.png");
-  }
-    
-}
 
 function display() {
 	var theString = "";
 
 	if (this.health < minHealth){
 		theString = this.petName + " IS DEAD!";
-        $('.meowmeow').attr("src", "http://i.imgur.com/jlpPJrS.png");
+        $('.meowmeow').attr("src", "img/kitty-2.png");
       	funeral.play();
 	} else if (this.age > 20){
         theString = this.petName + " has passed of old age. He lived a happy life.";
-          $('.meowmeow').attr("src", "http://i.imgur.com/0asox5n.png");
-    		clearTimeout(theTimeOut);
+          $('.meowmeow').attr("src", "img/kitty-3.png");
+    		this.health = 100;
+    		loveU.play();
     } else {
 		theString += "Happiness " + parseInt(this.happiness);
-		theString += ".  Health: " + parseInt(this.health);
 		theString += ".  Hunger: " + parseInt(this.hunger);
+		theString += ".  Health: " + parseInt(this.health);		
 		theString += ".  Age: " + parseInt(this.age);
 		theString += ".";
 	}
@@ -93,7 +82,8 @@ function makeOlder() {
 		this.age +=1;
 		this.happiness -= Math.random() * 2;
 		this.hunger += Math.random() * 2;
-		if (this.hunger > 3){
+		
+		if (this.hunger > 2){
 			this.health -= Math.random() * 2;
 			this.happiness -= Math.random() * 2;
 		}
@@ -106,13 +96,13 @@ function makeOlder() {
 			this.hunger = 0;
 		}
 
-		if (this.happiness < 3){
+		if (this.happiness < 4){
 			$('.meowmeow').attr("src", "img/kitty-1.png");
 		}
 
 		if (this.happiness > goodHappiness){
-			this.health += Math.random() *2;
-          $('.meowmeow').attr("src", "http://i.imgur.com/uC8jFIs.png");
+			this.health += Math.random() *1;
+          $('.meowmeow').attr("src", "img/kitty1.png");
 		}
         if (this.health > 10){
           this.health = 10;
@@ -120,6 +110,9 @@ function makeOlder() {
         if (this.happiness> 9){
         	$('.meowmeow').attr("src", "img/kitty2.png");
           purr.play();
+        } 
+        if (this.happiness < 0){
+        	this.happiness = 0;
         }
 	}
 
@@ -132,23 +125,22 @@ function makeOlder() {
 function start() {
 	kitty = new Pet(nameKitty,0);
 	moveTime();
-    imageChange();
 }
 
 function moveTime() {
 	kitty.makeOlder();
-	theTimeOut = setTimeout("moveTime();", 2000);
+	theTimeOut = setTimeout("moveTime();", 5000);
 }	
+
 
 ///Click cat, it meows
       $(document).ready(function() {
         
       $('.meowmeow').click(function(){
         $('.meowmeow').attr("src", "img/kittyalt.png");
+
       });
-       $('.meowmeow').mouseleave(function(){
-        $('.meowmeow').attr("src", "img/kitty0.png");
-      });
+      
         var audioElement = document.createElement('audio');
         audioElement.setAttribute('src', 'http://www.wavlist.com/soundfx/002/cat-meow4.wav');
 
@@ -164,5 +156,5 @@ function moveTime() {
         });
       });
 
-/// cat death image change
+
 

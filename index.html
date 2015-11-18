@@ -1,25 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-  
+ <link rel="stylesheet" type="text/css" href="css/kittystyle.css"> 
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
  <script src="js/virtualPet.js"></script>
-  <meta charset="utf-8">
+
+
   
   <title>Virtual Pet</title>
 </head>
 <body>
-
-
+<div class="centeredContent">
+<div class="kittyTitle">./VirtuaCat/</div>
 <img src="img/kitty0.png" class="meowmeow" width="250">
 <form>
 Name: <input type="text" name="petName" value=""><br>
 
 Status: <input type="text" size="60" name="petStatus" value=""><br>
 
-<input type="button" value="feed" class ="feedIt" onClick="kitty.feed();">
-
 <input type="button" value="play" onClick="kitty.play();">
+
+<input type="button" value="feed" class ="feedIt" onClick="kitty.feed();">
 
 <input type="button" value="medicate" onClick="kitty.medicate();">
 
@@ -32,6 +33,6 @@ Status: <input type="text" size="60" name="petStatus" value=""><br>
 <input type="button" value="stop the madness!" onClick = "clearTimeout(theTimeOut);">
 
 </form>
-  
+ </div> 
 </body>
 </html>
