@@ -32,16 +32,16 @@ function Pet(thePetName, theFormNumber) {
 $(function() {
     $(".colorSwitch").change(function() {
         if ($("#white").is(":checked")) {
-            $(".meowmeow").css('backgroundColor', "#FFFFFF");
+            $(".meowmeow").css('background', "#FFFFFF");
         }
         if ($("#gray").is(":checked")) {
-            $(".meowmeow").css('backgroundColor', "#666666");
+            $(".meowmeow").css('background', "#666666");
         }
         if ($("#orange").is(":checked")) {
-            $(".meowmeow").css('backgroundColor', "#FF9933");
+            $(".meowmeow").css('background', "#FF9933");
         }
         if ($("#pika").is(":checked")) {
-            $(".meowmeow").css('backgroundColor', "#FFD363");
+            $(".meowmeow").css("background", "url(img/chuchu.jpg)");
         }
     });
 });
