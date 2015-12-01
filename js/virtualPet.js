@@ -8,6 +8,7 @@ var minHealth = 0;
 var purr = new Audio('audio/purr.mp3');
 var funeral = new Audio ('audio/funeral.mp3');
 var loveU = new Audio ('audio/loveu.mp3');
+var pikapika = new Audio ('audio/pika.wav');
 
 function Pet(thePetName, theFormNumber) {
     this.age = 0;
@@ -39,7 +40,7 @@ $(function() {
         if ($("#orange").is(":checked")) {
             $(".meowmeow").css('backgroundColor', "#FF9933");
         }
-        if ($("#black").is(":checked")) {
+        if ($("#pika").is(":checked")) {
             $(".meowmeow").css('backgroundColor', "#FFD363");
         }
     });
@@ -70,6 +71,8 @@ function medicate() {
     } 
     this.display();
 }
+
+
 
 ///// displays cat's levels on form as text
 function display() {
@@ -181,6 +184,26 @@ function moveTime() {
 
 
         $('.meowmeow').click(function() {
+        audioElement.play();
+        });
+      });
+
+
+      ///Click cat, it pika
+      $(document).ready(function() {
+        
+      
+        var audioElement = document.createElement('audio');
+        audioElement.setAttribute('src', 'audio/pika.wav');
+
+        //audioElement.load()
+        $.get();
+        audioElement.addEventListener("load", function() {
+        audioElement.play();
+        }, true);
+
+
+        $('.chu').click(function() {
         audioElement.play();
         });
       });
