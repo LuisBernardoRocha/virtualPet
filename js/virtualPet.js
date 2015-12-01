@@ -13,7 +13,7 @@ function Pet(thePetName, theFormNumber) {
     this.age = 0;
     this.hunger = 5;  // random number between 0 and 4.99
     this.health = 10;
-    this.happiness = 5;
+    this.happiness = 7;
     this.petName = thePetName;
     this.formNumber = theFormNumber;
 
@@ -25,6 +25,27 @@ function Pet(thePetName, theFormNumber) {
     window.document.forms[theFormNumber].petName.value = thePetName;
     this.display();
 }
+
+
+//// change cats color based on radio button selected
+$(function() {
+    $(".colorSwitch").change(function() {
+        if ($("#white").is(":checked")) {
+            $(".meowmeow").css('backgroundColor', "#FFFFFF");
+        }
+        if ($("#gray").is(":checked")) {
+            $(".meowmeow").css('backgroundColor', "#666666");
+        }
+        if ($("#orange").is(":checked")) {
+            $(".meowmeow").css('backgroundColor', "#FF9933");
+        }
+        if ($("#black").is(":checked")) {
+            $(".meowmeow").css('backgroundColor', "#FFD363");
+        }
+    });
+});
+
+
 //// cat actions functions, activated by buttons
 function feed() {
     this.hunger = this.hunger + 1;
@@ -78,7 +99,7 @@ function display() {
 function makeOlder() {
 
     var maxHunger = 5;
-    var goodHappiness = 5; 
+    var goodHappiness = 7; 
 
     if (this.health > minHealth){
             
@@ -101,9 +122,12 @@ function makeOlder() {
         if (this.happiness < 4){
             $('.meowmeow').attr("src", "img/kitty-1.png");
         }
+         if (this.happiness < goodHappiness){
+            this.health -= Math.random() *2;
+        }
 
         if (this.happiness > goodHappiness){
-            this.health += Math.random() *0;
+            this.health += Math.random() *2;
           $('.meowmeow').attr("src", "img/kitty1.png");
         }
         if (this.health > 10){
