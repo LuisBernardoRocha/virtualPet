@@ -126,7 +126,7 @@ function makeOlder() {
 //// activated on start button click. creates new kitty object and begins timer
 function start() {
     kitty = new Pet(nameKitty,0);
-     $('.meowmeow').attr("src", "img/kitty0.PNG");
+     $('.meowmeow').attr("src", "img/kitty0.png");
     $(".start").hide();
     moveTime();
 }
