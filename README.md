@@ -1,6 +1,8 @@
 #./commandeFeline/
-
+========
 ./cF/ is an object oriented virtual pet that I created for my front-end development project while attending the Full Stack Immersive Program at Galvanzie in San Francisco. This project was meant to showcase our understanding of HTML, CSS, JavaScript, and jQuery.
+
+![screenshot](http://i.imgur.com/qk4Mfns.jpg)
 
 ./cF/ is simple: upon loading the page you are prompted to name this kitty. From there, you click the "start" button to initialize the game.
 
